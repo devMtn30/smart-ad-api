@@ -1,0 +1,187 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#wrap {
+  width: 100%;
+}
+/*header*/
+#header {
+  width: 100%;
+  height: 100px;
+  background-color: black;
+}
+#logo img {
+  max-width: 150px; /* 로고 최대 너비를 200px로 제한 */
+  height: auto;
+}
+a {
+  text-decoration: none;
+}
+ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+li {
+  list-style-type: none;
+  width: 200px;
+  color: #ffffff;
+}
+#menu a {
+  color: white;
+}
+#header .containor {
+  display: flex;
+  align-items: center;
+}
+#logo {
+  width: 10%;
+}
+#nav {
+  width: 80%;
+}
+#log {
+  width: 10%;
+}
+button {
+  background-color: #6500ff;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px 10px 20px;
+  font-size: 15px;
+  cursor: pointer;
+}
+/*section01*/
+#section01 {
+  width: 100%;
+  height: 980px;
+  background-color: rgb(63, 63, 63);
+  background-image: url(../img/bg.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+#section01 .containor {
+  position: relative;
+}
+.txt_box {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.down {
+  position: absolute;
+  left: 50%;
+  bottom: 3%;
+  transform: translate(-50%, -3%);
+  animation: blink 1s infinite; /* 1초 간격으로 무한  반복*/
+}
+.scroll {
+  position: absolute;
+  left: 50%;
+  bottom: 10%;
+  transform: translate(-50%, -10%);
+}
+#title {
+  font-size: 80px;
+  color: #fff;
+  text-align: center;
+}
+#sub_title {
+  font-size: 50px;
+  color: #fff;
+  text-align: center;
+}
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/*section02*/
+#section02 {
+  width: 100%;
+  height: 1075px;
+  background-color: black;
+}
+#section02 .containor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.move,
+.txt_bod2 {
+  width: 50%;
+  height: 700px;
+}
+#service {
+  font-size: 80px;
+  color: #fff;
+}
+#main_txt {
+  color: #fff;
+  font-size: 35px;
+  text-align: center;
+}
+#sub_txt {
+  color: #fff;
+  font-size: 29px;
+  text-align: center;
+  margin-bottom: 20%;
+}
+.ani {
+  opacity: 0;
+  transition: all 0.9;
+}
+/*section03*/
+#section03 {
+  width: 100%;
+  height: 1075px;
+  background-color: rgb(128, 128, 128);
+}
+
+/*footer*/
+#footer {
+  width: 100%;
+  height: 100px;
+  background-color: rgb(207, 207, 207);
+}
+
+/*containor*/
+.containor {
+  width: 1600px;
+  height: inherit;
+  margin: 0 auto;
+}
+/*미디어쿼리*/
+@media (max-width: 1700px) {
+  .containor {
+    width: 96%;
+  }
+}
+@media (max-width: 768px) {
+  .containor {
+    width: 100%;
+  }
+}
+@media (max-width: 480px) {
+  .containor {
+    width: 100%;
+  }
+}
+
+.ani {
+  opacity: 0;
+  transition: opacity 5s ease;
+}
