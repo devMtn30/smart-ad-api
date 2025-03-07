@@ -3,3 +3,9 @@ spring:
     url: jdbc:mysql://google/smart_ad?socketFactory=com.google.cloud.sql.mysql.SocketFactory&cloudSqlInstance=smart-ad-451409:asia-northeast3:smart-ad-mysql&useSSL=false
     username: user-api
     password: ${DB_PASSWORD}
+
+
+jwt:
+  #추후 환경변수로 변경 
+  secret: dasgdjskfjfdghud80fi9du97yf8sjpkfjhejwrikfd9y7y 
+  expiration: 120000

@@ -1,4 +1,4 @@
-package com.smartAd.api.controller
+package com.smartAd.api.interfaces
 
 import org.springframework.stereotype.Controller
 
