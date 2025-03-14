@@ -6,5 +6,6 @@ spring:
 
 
 jwt:
-  secret: ${JWT_SECRET}
+  #추후 환경변수로 변경 
+  secret: dasgdjskfjfdghud80fi9du97yf8sjpkfjhejwrikfd9y7y 
   expiration: 120000

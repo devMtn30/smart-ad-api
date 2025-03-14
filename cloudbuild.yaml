@@ -33,6 +33,7 @@ steps:
         '--region=asia-northeast3',
         '--platform=managed',
         '--set-secrets=DB_PASSWORD=projects/484753512912/secrets/DB_PASSWORD/versions/latest',
+        '--set-secrets=JWT_SECRET=projects/484753512912/secrets/JWT_SECRET/versions/latest',
       ]
 
 images:
