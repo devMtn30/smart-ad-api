@@ -1,10 +1,13 @@
 package com.smartAd.api.interfaces
 
 import org.springframework.stereotype.Controller
+import org.springframework.web.bind.annotation.GetMapping
 
 @Controller
 class HomeController {
 
-
-    fun index() = "index"
+    @GetMapping("/", "")
+    fun rootIndex() = "index"
+    @GetMapping("/login")
+    fun login() = "auth-login"
 }
