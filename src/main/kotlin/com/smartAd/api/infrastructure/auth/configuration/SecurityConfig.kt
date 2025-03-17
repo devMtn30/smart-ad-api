@@ -20,9 +20,8 @@ class SecurityConfig(
             .csrf { it.disable() }
             .sessionManagement { it.sessionCreationPolicy(SessionCreationPolicy.STATELESS) }
             .authorizeHttpRequests {
-                it.requestMatchers("/api/auth/**").permitAll()
-                it.requestMatchers("/auth/**").permitAll()
-                it.requestMatchers("/").permitAll()
+                it.requestMatchers("/", "/assets/**", "/css/**", "/img/**", "/js/**",
+                    "/api/auth/**", "/auth/**").permitAll()
                     .anyRequest().authenticated()
             }
             .addFilterBefore(jwtAuthenticationFilter, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter::class.java)
