@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Breadcrumb - Mazer Admin Dashboard</title>
+    <title>Carousel - 스마트에드</title>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -23,7 +23,7 @@
                 <div class="sidebar-header">
                     <div class="d-flex justify-content-between">
                         <div class="logo">
-                            <a href="index.html"><img src="../static/assets/images/logo/logo.png" alt="Logo" srcset=""></a>
+                            <a href="/"><img src="../static/img/logo.png" alt="Logo" srcset=""></a>
                         </div>
                         <div class="toggler">
                             <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
@@ -35,7 +35,7 @@
                         <li class="sidebar-title">Menu</li>
 
                         <li class="sidebar-item  ">
-                            <a href="index.html" class='sidebar-link'>
+                            <a href="/" class='sidebar-link'>
                                 <i class="bi bi-grid-fill"></i>
                                 <span>Dashboard</span>
                             </a>
@@ -53,7 +53,7 @@
                                 <li class="submenu-item ">
                                     <a href="component-badge.html">Badge</a>
                                 </li>
-                                <li class="submenu-item active">
+                                <li class="submenu-item ">
                                     <a href="component-breadcrumb.html">Breadcrumb</a>
                                 </li>
                                 <li class="submenu-item ">
@@ -323,10 +323,10 @@
                                     <a href="auth-login.html">Login</a>
                                 </li>
                                 <li class="submenu-item ">
-                                    <a href="auth-register.html">Register</a>
+                                    <a href="/auth/register">Register</a>
                                 </li>
                                 <li class="submenu-item ">
-                                    <a href="auth-forgot-password.html">Forgot Password</a>
+                                    <a href="/auth/password">Forgot Password</a>
                                 </li>
                             </ul>
                         </li>
@@ -338,13 +338,13 @@
                             </a>
                             <ul class="submenu ">
                                 <li class="submenu-item ">
-                                    <a href="error-403.html">403</a>
+                                    <a href="error/403.html">403</a>
                                 </li>
                                 <li class="submenu-item ">
-                                    <a href="error-404.html">404</a>
+                                    <a href="error/error-404.html">404</a>
                                 </li>
                                 <li class="submenu-item ">
-                                    <a href="error-500.html">500</a>
+                                    <a href="error/error-500.html">500</a>
                                 </li>
                             </ul>
                         </li>
@@ -388,92 +388,177 @@
                 <div class="page-title">
                     <div class="row">
                         <div class="col-12 col-md-6 order-md-1 order-last">
-                            <h3>Breadcrumb</h3>
-                            <p class="text-subtitle text-muted">Indicate the current page’s location within a
-                                navigational hierarchy
-                                that automatically adds separators via CSS</p>
+                            <h3>Carousel</h3>
+                            <p class="text-subtitle text-muted"> A slideshow component for cycling through
+                                elements—images or slides of
+                                text—like a carousel. </p>
                         </div>
                         <div class="col-12 col-md-6 order-md-2 order-first">
                             <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Breadcrumb</li>
+                                    <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Carousel</li>
                                 </ol>
                             </nav>
                         </div>
                     </div>
                 </div>
                 <section class="section">
-                    <div class="card">
-                        <div class="card-header">
-                            <h4 class="card-title">Default</h4>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4>Slides only</h4>
+                                    <p>A carousel without slide control</p>
+                                </div>
+                                <div class="card-body">
+                                    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                                        <div class="carousel-inner">
+                                            <div class="carousel-item active">
+                                                <img src="../static/assets/images/samples/building.jpg" class="d-block w-100"
+                                                     alt="...">
+                                            </div>
+                                            <div class="carousel-item">
+                                                <img src="../static/assets/images/samples/architecture1.jpg" class="d-block w-100"
+                                                     alt="...">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4>With Captions</h4>
+                                    <p>A carousel with captions over the top</p>
+                                </div>
+                                <div class="card-body">
+                                    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                                        <ol class="carousel-indicators">
+                                            <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0"
+                                                class="active"></li>
+                                            <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"></li>
+                                            <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"></li>
+                                        </ol>
+                                        <div class="carousel-inner">
+                                            <div class="carousel-item active">
+                                                <img src="../static/assets/images/samples/1.png" class="d-block w-100" alt="...">
+                                                <div class="carousel-caption d-none d-md-block">
+                                                    <h5>First slide label</h5>
+                                                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                                                </div>
+                                            </div>
+                                            <div class="carousel-item">
+                                                <img src="../static/assets/images/samples/2.png" class="d-block w-100" alt="...">
+                                                <div class="carousel-caption d-none d-md-block">
+                                                    <h5>Second slide label</h5>
+                                                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button"
+                                            data-bs-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Previous</span>
+                                        </a>
+                                        <a class="carousel-control-next" href="#carouselExampleCaptions" role="button"
+                                            data-bs-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Next</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="card-body">
-                            <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item active" aria-current="page">Home</li>
-                                </ol>
-                            </nav>
 
-                            <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Library</li>
-                                </ol>
-                            </nav>
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4>With controls</h4>
+                                    <p>A carousel with previous and next control</p>
+                                </div>
+                                <div class="card-body">
+                                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                                        <div class="carousel-inner">
+                                            <div class="carousel-item active">
+                                                <img src="../static/assets/images/samples/banana.jpg" class="d-block w-100"
+                                                     alt="...">
+                                            </div>
+                                            <div class="carousel-item">
+                                                <img src="../static/assets/images/samples/bg-mountain.jpg" class="d-block w-100"
+                                                     alt="...">
+                                            </div>
+                                        </div>
+                                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button"
+                                            data-bs-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Previous</span>
+                                        </a>
+                                        <a class="carousel-control-next" href="#carouselExampleControls" role="button"
+                                            data-bs-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Next</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
 
-                            <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                    <li class="breadcrumb-item"><a href="#">Library</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Data</li>
-                                </ol>
-                            </nav>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header">
-                            <h4 class="card-title">Position</h4>
-                        </div>
-                        <div class="card-body">
-                            <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                    <li class="breadcrumb-item"><a href="#">Library</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Data</li>
-                                </ol>
-                            </nav>
-                            <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb breadcrumb-center">
-                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                    <li class="breadcrumb-item"><a href="#">Library</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Data</li>
-                                </ol>
-                            </nav>
-                            <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb breadcrumb-right">
-                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                    <li class="breadcrumb-item"><a href="#">Library</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Data</li>
-                                </ol>
-                            </nav>
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4>Crossfade Transition</h4>
+                                    <p>A carousel crossfade transition</p>
+                                </div>
+                                <div class="card-body">
+                                    <div id="carouselExampleFade" class="carousel slide carousel-fade"
+                                        data-bs-ride="carouselfade">
+                                        <ol class="carousel-indicators">
+                                            <li data-bs-target="#carouselExampleFade" data-bs-slide-to="0"
+                                                class="active"></li>
+                                            <li data-bs-target="#carouselExampleFade" data-bs-slide-to="1"></li>
+                                            <li data-bs-target="#carouselExampleFade" data-bs-slide-to="2"></li>
+                                        </ol>
+                                        <div class="carousel-inner">
+                                            <div class="carousel-item active">
+                                                <img src="../static/assets/images/samples/1.png" class="d-block w-100" alt="...">
+                                                <div class="carousel-caption d-none d-md-block">
+                                                    <h5>First slide label</h5>
+                                                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                                                </div>
+                                            </div>
+                                            <div class="carousel-item">
+                                                <img src="../static/assets/images/samples/2.png" class="d-block w-100" alt="...">
+                                                <div class="carousel-caption d-none d-md-block">
+                                                    <h5>Second slide label</h5>
+                                                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                                                </div>
+                                            </div>
+                                            <div class="carousel-item">
+                                                <img src="../static/assets/images/samples/3.png" class="d-block w-100" alt="...">
+                                                <div class="carousel-caption d-none d-md-block">
+                                                    <h5>Third slide label</h5>
+                                                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <a class="carousel-control-prev" href="#carouselExampleFade" role="button"
+                                            data-bs-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Previous</span>
+                                        </a>
+                                        <a class="carousel-control-next" href="#carouselExampleFade" role="button"
+                                            data-bs-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Next</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>
 
             </div>
 
-            <footer>
-                <div class="footer clearfix mb-0 text-muted">
-                    <div class="float-start">
-                        <p>2021 &copy; Mazer</p>
-                    </div>
-                    <div class="float-end">
-                        <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a
-                                href="http://ahmadsaugi.com">A. Saugi</a></p>
-                    </div>
-                </div>
-            </footer>
+
         </div>
     </div>
     <script src="../static/assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>

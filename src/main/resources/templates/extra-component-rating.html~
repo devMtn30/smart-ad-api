@@ -4,11 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CKEditor - Mazer Admin Dashboard</title>
+    <title>Rating - 스마트에드</title>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../static/assets/css/bootstrap.css">
+
+    <link rel="stylesheet" href="../static/assets/vendors/rater-js/style.css">
 
     <link rel="stylesheet" href="../static/assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
     <link rel="stylesheet" href="../static/assets/vendors/bootstrap-icons/bootstrap-icons.css">
@@ -23,7 +25,7 @@
                 <div class="sidebar-header">
                     <div class="d-flex justify-content-between">
                         <div class="logo">
-                            <a href="index.html"><img src="../static/assets/images/logo/logo.png" alt="Logo" srcset=""></a>
+                            <a href="/"><img src="../static/img/logo.png" alt="Logo" srcset=""></a>
                         </div>
                         <div class="toggler">
                             <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
@@ -35,7 +37,7 @@
                         <li class="sidebar-title">Menu</li>
 
                         <li class="sidebar-item  ">
-                            <a href="index.html" class='sidebar-link'>
+                            <a href="/" class='sidebar-link'>
                                 <i class="bi bi-grid-fill"></i>
                                 <span>Dashboard</span>
                             </a>
@@ -92,12 +94,12 @@
                             </ul>
                         </li>
 
-                        <li class="sidebar-item  has-sub">
+                        <li class="sidebar-item active has-sub">
                             <a href="#" class='sidebar-link'>
                                 <i class="bi bi-collection-fill"></i>
                                 <span>Extra Components</span>
                             </a>
-                            <ul class="submenu ">
+                            <ul class="submenu active">
                                 <li class="submenu-item ">
                                     <a href="extra-component-avatar.html">Avatar</a>
                                 </li>
@@ -107,7 +109,7 @@
                                 <li class="submenu-item ">
                                     <a href="extra-component-toastify.html">Toastify</a>
                                 </li>
-                                <li class="submenu-item ">
+                                <li class="submenu-item active">
                                     <a href="extra-component-rating.html">Rating</a>
                                 </li>
                                 <li class="submenu-item ">
@@ -173,13 +175,13 @@
                             </a>
                         </li>
 
-                        <li class="sidebar-item active has-sub">
+                        <li class="sidebar-item  has-sub">
                             <a href="#" class='sidebar-link'>
                                 <i class="bi bi-pen-fill"></i>
                                 <span>Form Editor</span>
                             </a>
-                            <ul class="submenu active">
-                                <li class="submenu-item active">
+                            <ul class="submenu ">
+                                <li class="submenu-item ">
                                     <a href="form-editor-quill.html">Quill</a>
                                 </li>
                                 <li class="submenu-item ">
@@ -323,10 +325,10 @@
                                     <a href="auth-login.html">Login</a>
                                 </li>
                                 <li class="submenu-item ">
-                                    <a href="auth-register.html">Register</a>
+                                    <a href="/auth/register">Register</a>
                                 </li>
                                 <li class="submenu-item ">
-                                    <a href="auth-forgot-password.html">Forgot Password</a>
+                                    <a href="/auth/password">Forgot Password</a>
                                 </li>
                             </ul>
                         </li>
@@ -338,13 +340,13 @@
                             </a>
                             <ul class="submenu ">
                                 <li class="submenu-item ">
-                                    <a href="error-403.html">403</a>
+                                    <a href="error/403.html">403</a>
                                 </li>
                                 <li class="submenu-item ">
-                                    <a href="error-404.html">404</a>
+                                    <a href="error/error-404.html">404</a>
                                 </li>
                                 <li class="submenu-item ">
-                                    <a href="error-500.html">500</a>
+                                    <a href="error/error-500.html">500</a>
                                 </li>
                             </ul>
                         </li>
@@ -388,14 +390,16 @@
                 <div class="page-title">
                     <div class="row">
                         <div class="col-12 col-md-6 order-md-1 order-last">
-                            <h3>CKEditor </h3>
-                            <p class="text-subtitle text-muted">For user to check they list</p>
+                            <h3>Rating</h3>
+                            <p class="text-subtitle text-muted">Rating with <a href="">rater-js</a>. Pure javascript
+                                rating library
+                            </p>
                         </div>
                         <div class="col-12 col-md-6 order-md-2 order-first">
                             <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">CKEditor</li>
+                                    <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Rating</li>
                                 </ol>
                             </nav>
                         </div>
@@ -406,12 +410,40 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">Classic Editor</h4>
+                                    <h4 class="card-title">Basic Rating</h4>
                                 </div>
                                 <div class="card-body">
-                                    <div id="editor">
-                                        <p>This is some sample content.</p>
-                                    </div>
+                                    <div id="basic"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title">5 Star Rating with Step</h4>
+                                </div>
+                                <div class="card-body">
+                                    <div id="step"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title">Unlimited Number of Stars</h4>
+                                </div>
+                                <div class="card-body">
+                                    <div id="unli1"></div>
+                                    <br>
+                                    <div id="unli2"></div>
                                 </div>
                             </div>
                         </div>
@@ -419,31 +451,14 @@
                 </section>
             </div>
 
-            <footer>
-                <div class="footer clearfix mb-0 text-muted">
-                    <div class="float-start">
-                        <p>2021 &copy; Mazer</p>
-                    </div>
-                    <div class="float-end">
-                        <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a
-                                href="http://ahmadsaugi.com">A. Saugi</a></p>
-                    </div>
-                </div>
-            </footer>
+
         </div>
     </div>
     <script src="../static/assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
     <script src="../static/assets/js/bootstrap.bundle.min.js"></script>
 
-    <script src="../static/assets/vendors/ckeditor/ckeditor.js"></script>
-
-    <script>
-        ClassicEditor
-            .create(document.querySelector('#editor'))
-            .catch(error => {
-                console.error(error);
-            });
-    </script>
+    <script src="../static/assets/vendors/rater-js/rater-js.js"></script>
+    <script src="../static/assets/js/extensions/rater-js.js"></script>
 
     <script src="../static/assets/js/main.js"></script>
 </body>

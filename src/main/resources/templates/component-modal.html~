@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modal - Mazer Admin Dashboard</title>
+    <title>Modal - 스마트에드</title>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -23,7 +23,7 @@
                 <div class="sidebar-header">
                     <div class="d-flex justify-content-between">
                         <div class="logo">
-                            <a href="index.html"><img src="../static/assets/images/logo/logo.png" alt="Logo" srcset=""></a>
+                            <a href="/"><img src="../static/img/logo.png" alt="Logo" srcset=""></a>
                         </div>
                         <div class="toggler">
                             <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
@@ -35,7 +35,7 @@
                         <li class="sidebar-title">Menu</li>
 
                         <li class="sidebar-item  ">
-                            <a href="index.html" class='sidebar-link'>
+                            <a href="/" class='sidebar-link'>
                                 <i class="bi bi-grid-fill"></i>
                                 <span>Dashboard</span>
                             </a>
@@ -323,10 +323,10 @@
                                     <a href="auth-login.html">Login</a>
                                 </li>
                                 <li class="submenu-item ">
-                                    <a href="auth-register.html">Register</a>
+                                    <a href="/auth/register">Register</a>
                                 </li>
                                 <li class="submenu-item ">
-                                    <a href="auth-forgot-password.html">Forgot Password</a>
+                                    <a href="/auth/password">Forgot Password</a>
                                 </li>
                             </ul>
                         </li>
@@ -338,13 +338,13 @@
                             </a>
                             <ul class="submenu ">
                                 <li class="submenu-item ">
-                                    <a href="error-403.html">403</a>
+                                    <a href="error/403.html">403</a>
                                 </li>
                                 <li class="submenu-item ">
-                                    <a href="error-404.html">404</a>
+                                    <a href="error/error-404.html">404</a>
                                 </li>
                                 <li class="submenu-item ">
-                                    <a href="error-500.html">500</a>
+                                    <a href="error/error-500.html">500</a>
                                 </li>
                             </ul>
                         </li>
@@ -397,7 +397,7 @@
                         <div class="col-12 col-md-6 order-md-2 order-first">
                             <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                                    <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
                                     <li class="breadcrumb-item active" aria-current="page">Modal</li>
                                 </ol>
                             </nav>
@@ -1748,17 +1748,7 @@
                 <!-- Form and scrolling Components end -->
             </div>
 
-            <footer>
-                <div class="footer clearfix mb-0 text-muted">
-                    <div class="float-start">
-                        <p>2021 &copy; Mazer</p>
-                    </div>
-                    <div class="float-end">
-                        <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a
-                                href="http://ahmadsaugi.com">A. Saugi</a></p>
-                    </div>
-                </div>
-            </footer>
+
         </div>
     </div>
     <script src="../static/assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
