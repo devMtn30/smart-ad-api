@@ -3,7 +3,10 @@ spring:
     url: jdbc:mysql://google/smart_ad?socketFactory=com.google.cloud.sql.mysql.SocketFactory&cloudSqlInstance=smart-ad-451409:asia-northeast3:smart-ad-mysql&useSSL=false
     username: user-api
     password: ${DB_PASSWORD}
-
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
 
 jwt:
   secret: ${JWT_SECRET}
