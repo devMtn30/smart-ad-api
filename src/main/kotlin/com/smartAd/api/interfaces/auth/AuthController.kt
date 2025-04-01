@@ -17,7 +17,7 @@ class AuthController(
 ) {
     @PostMapping("/signup")
     fun signup(@RequestBody request: SignupRequest): ResponseEntity<Any> {
-        val user = authAppService.signUp(request.username, request.password)
+        val user = authAppService.signUp(request)
         return ResponseEntity.ok(SignupResponse(user.id!!, user.username))
     }
 
