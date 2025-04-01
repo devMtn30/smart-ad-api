@@ -34,7 +34,6 @@ dependencies {
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	compileOnly("org.projectlombok:lombok")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
-	developmentOnly("org.springframework.boot:spring-boot-docker-compose")
 	annotationProcessor("org.projectlombok:lombok")
 
 	// Kotlin reflect
@@ -56,7 +55,7 @@ dependencies {
 
 	//db
 	runtimeOnly("com.mysql:mysql-connector-j")
-	runtimeOnly("com.h2database:h2")
+	testRuntimeOnly("com.h2database:h2")
 
 	// 테스트
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
