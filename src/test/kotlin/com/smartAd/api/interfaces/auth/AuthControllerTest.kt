@@ -35,7 +35,7 @@ class AuthControllerTest {
     @Test
     fun `회원가입 성공 테스트`() {
         // given
-        val request = SignupRequest(username = "testuser", password = "testpass")
+        val request = SignupRequest(username = "testuser", password = "testpass", email = "")
         val requestBody = objectMapper.writeValueAsString(request)
 
         // when & then
@@ -52,7 +52,7 @@ class AuthControllerTest {
     @Test
     fun `로그인 성공 테스트`() {
         // 1) 사전 준비 - 회원가입
-        val signUpReq = SignupRequest(username = "loginUser", password = "loginPass")
+        val signUpReq = SignupRequest(username = "loginUser", password = "loginPass", email = "")
         mockMvc.perform(
             post("/auth/signup")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -74,7 +74,7 @@ class AuthControllerTest {
     @Test
     fun `로그인 실패 테스트 - 비밀번호 불일치`() {
         // 1) 사전 준비 - 회원가입
-        val signUpReq = SignupRequest(username = "failUser", password = "correctPass")
+        val signUpReq = SignupRequest(username = "failUser", password = "correctPass", email = "")
         mockMvc.perform(
             post("/auth/signup")
                 .contentType(MediaType.APPLICATION_JSON)
