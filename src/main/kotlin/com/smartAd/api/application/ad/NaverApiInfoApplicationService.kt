@@ -18,7 +18,12 @@ class NaverApiInfoApplicationService(
     private val naverApiInfoRepository: NaverApiInfoRepository,
 ) {
     @Transactional
-    fun addApiInfo(request: AddApiInfoRequest) {
+    fun addApiInfo(request: AddApiInfoRequest): NaverApiInfo {
+        // 유효성 검사 추가
+        require(request.customerId.isNotBlank()) { "고객 ID는 필수 항목입니다." }
+        require(request.accessLicense.isNotBlank()) { "접근 라이센스는 필수 항목입니다." }
+        require(request.secretKey.isNotBlank()) { "시크릿 키는 필수 항목입니다." }
+        
         val naverApiInfo = NaverApiInfo(
             customerId = request.customerId,
             accessLicense = request.accessLicense,
@@ -28,7 +33,7 @@ class NaverApiInfoApplicationService(
             updatedAt = LocalDateTime.now(),
         )
 
-        naverApiInfoRepository.save(naverApiInfo)
+        return naverApiInfoRepository.save(naverApiInfo)
     }
 
 }
