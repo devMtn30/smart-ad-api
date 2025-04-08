@@ -1,8 +1,6 @@
 package com.smartAd.api.interfaces.ad.dto
 
-package com.smartAd.api.interfaces.ad.dto
-
-import javax.validation.constraints.NotBlank
+import jakarta.validation.constraints.NotBlank
 
 data class AddApiInfoRequest(
     @NotBlank(message = "고객 ID는 필수입니다")
