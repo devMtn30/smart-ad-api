@@ -1,4 +1,4 @@
-package com.smartAd.api.infrastructure.auth.repository
+package com.smartAd.api.infrastructure.ad.repository
 
 import com.smartAd.api.domain.ad.model.NaverApiInfo
 import com.smartAd.api.domain.ad.repository.NaverApiInfoRepository
