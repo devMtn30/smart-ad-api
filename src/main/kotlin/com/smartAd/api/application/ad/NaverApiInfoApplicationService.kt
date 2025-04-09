@@ -34,6 +34,12 @@ class NaverApiInfoApplicationService(
         return naverApiInfoRepository.save(naverApiInfo)
     }
 
+    /**
+     * 사용자 ID로 등록된 모든 API 정보를 조회합니다.
+     * @param userId 사용자 ID
+     * @return 사용자의 API 정보 목록. 정보가 없을 경우 빈 목록이 반환됩니다.
+     */
+    @Transactional(readOnly = true)
     fun findUserAccount(userId: Long): List<NaverApiInfo> {
         return naverApiInfoRepository.findAllByUserId(userId)
     }

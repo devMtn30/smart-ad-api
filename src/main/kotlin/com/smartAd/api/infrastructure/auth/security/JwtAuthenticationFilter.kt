@@ -25,25 +25,14 @@ class JwtAuthenticationFilter(
                 .map { SimpleGrantedAuthority(it.trim()) }
 
             val findUser = authApplicationService.findUser(username)
-            if (findUser != null) {
-                val customPrincipal = CustomUserPrincipal(
+
+            val authentication = UsernamePasswordAuthenticationToken(
+                CustomUserPrincipal(
                     id = findUser.id ?: 0,
                     username = findUser.username,
                     password = "N/A",        // JWT 인증의 경우 비밀번호가 필요 없으므로 dummy
                     authorities = roles
-                )
-                val authentication = UsernamePasswordAuthenticationToken(
-                    customPrincipal,
-                    null, 
-                    roles
-                )
-                SecurityContextHolder.getContext().authentication = authentication
-            } else {
-                logger.warn("JWT 토큰에서 가져온 사용자($username)를 찾을 수 없습니다.")
-            }
-
-            val authentication = UsernamePasswordAuthenticationToken(
-                customPrincipal,
+                ),
                 null,
                 roles
             )

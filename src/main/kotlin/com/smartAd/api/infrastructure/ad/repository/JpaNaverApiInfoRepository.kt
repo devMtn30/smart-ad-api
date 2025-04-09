@@ -30,7 +30,7 @@ class NaverApiInfoJpaRepository(
     }
 
     override fun findAllByUserId(userId: Long): List<NaverApiInfo> {
-        naverApiInfoSpringDataJpaRepository.findAllByUserId(userId)
-            .stream().map { it.toDomain() }.toList().let { return it }
+        return naverApiInfoSpringDataJpaRepository.findAllByUserId(userId)
+            .map { it.toDomain() }
     }
 }
