@@ -39,4 +39,11 @@ class AuthApplicationService(
         require(passwordEncoder.matches(password, user.password)) { "비밀번호가 일치하지 않습니다." }
         return user;
     }
+
+    @Transactional(readOnly = true)
+    fun findUser(username: String): User {
+        val user = userRepository.findByUsername(username)
+        require(user != null) { "존재하지 않는 username 입니다." }
+        return user;
+    }
 }

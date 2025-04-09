@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository
 
 interface NaverApiInfoSpringDataJpaRepository : JpaRepository<NaverApiInfoEntity, Long> {
     fun findByUserId(userId: Long): NaverApiInfoEntity?
+    fun findAllByUserId(userId: Long): List<NaverApiInfoEntity>
 }
 
 
@@ -26,5 +27,10 @@ class NaverApiInfoJpaRepository(
     override fun findByUserId(userId: Long): NaverApiInfo? {
         val entity = naverApiInfoSpringDataJpaRepository.findByUserId(userId)
         return entity?.toDomain()
+    }
+
+    override fun findAllByUserId(userId: Long): List<NaverApiInfo> {
+        naverApiInfoSpringDataJpaRepository.findAllByUserId(userId)
+            .stream().map { it.toDomain() }.toList().let { return it }
     }
 }

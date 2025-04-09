@@ -1,5 +1,6 @@
 package com.smartAd.api.infrastructure.auth.security
 
+import com.smartAd.api.application.auth.AuthApplicationService
 import jakarta.servlet.FilterChain
 import jakarta.servlet.http.HttpServletRequest
 import jakarta.servlet.http.HttpServletResponse
@@ -11,30 +12,33 @@ import org.springframework.web.filter.OncePerRequestFilter
 
 @Component
 class JwtAuthenticationFilter(
-    private val tokenProvider: TokenProvider
+    private val tokenProvider: TokenProvider,
+    private val authApplicationService: AuthApplicationService
 ) : OncePerRequestFilter() {
 
-    override fun doFilterInternal(
-        request: HttpServletRequest,
-        response: HttpServletResponse,
-        filterChain: FilterChain
-    ) {
+    override fun doFilterInternal(request: HttpServletRequest, response: HttpServletResponse, filterChain: FilterChain) {
         val token = resolveToken(request)
         if (!token.isNullOrBlank() && tokenProvider.validateToken(token)) {
-            // 토큰에서 "roles" 클레임(예: "ROLE_USER,ROLE_ADMIN")을 파싱해 GrantedAuthority 리스트를 만든다.
-            val roles = tokenProvider.getRoles(token)
+            val username = tokenProvider.getUsername(token)
+            val roles = tokenProvider.getRoles(token)  // 예: "ROLE_USER,ROLE_ADMIN"
                 .split(",")
                 .map { SimpleGrantedAuthority(it.trim()) }
 
-            // principal(사용자 식별값), credential(보통 null), authorities(권한 목록)
+            val findUser = authApplicationService.findUser(username)
+            val customPrincipal = CustomUserPrincipal(
+                id = findUser.id ?: 0,
+                username = findUser.username,
+                password = "N/A",        // JWT 인증의 경우 비밀번호가 필요 없으므로 dummy
+                authorities = roles
+            )
+
             val authentication = UsernamePasswordAuthenticationToken(
-                tokenProvider.getUsername(token),
+                customPrincipal,
                 null,
                 roles
             )
             SecurityContextHolder.getContext().authentication = authentication
         }
-
         filterChain.doFilter(request, response)
     }
 

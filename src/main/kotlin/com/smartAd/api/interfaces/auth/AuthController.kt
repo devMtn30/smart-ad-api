@@ -1,12 +1,15 @@
 package com.smartAd.api.interfaces.auth
 
 import com.smartAd.api.application.auth.AuthApplicationService
+import com.smartAd.api.infrastructure.auth.security.CustomUserPrincipal
 import com.smartAd.api.infrastructure.auth.security.TokenProvider
 import com.smartAd.api.interfaces.auth.dto.LoginRequest
 import com.smartAd.api.interfaces.auth.dto.LoginResponse
 import com.smartAd.api.interfaces.auth.dto.SignupRequest
 import com.smartAd.api.interfaces.auth.dto.SignupResponse
 import org.springframework.http.ResponseEntity
+import org.springframework.security.access.prepost.PreAuthorize
+import org.springframework.security.core.annotation.AuthenticationPrincipal
 import org.springframework.web.bind.annotation.*
 
 @RestController
@@ -28,5 +31,17 @@ class AuthController(
 
         val token = tokenProvider.createToken(user.username, user.roles)
         return ResponseEntity.ok(LoginResponse(token))
+    }
+
+    @GetMapping("/me")
+    @PreAuthorize("isAuthenticated()")
+    fun myInfo(@AuthenticationPrincipal userPrincipal: CustomUserPrincipal): ResponseEntity<Any> {
+        return ResponseEntity.ok(
+            mapOf(
+                "id" to userPrincipal.getId(),
+                "username" to userPrincipal.username,
+                "roles" to userPrincipal.authorities.map { it.authority }
+            )
+        )
     }
 }
