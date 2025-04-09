@@ -8,6 +8,6 @@ data class AddApiInfoRequest(
     @NotBlank(message = "인증 라이센스는 필수입니다")
     val accessLicense: String,
     @NotBlank(message = "비밀 키는 필수입니다")
-    val secretKey: String,
-    val userId: Long,
-)
+    val secretKey: String
+) {
+}
