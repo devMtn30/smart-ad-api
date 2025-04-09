@@ -25,10 +25,12 @@ class AccountController(
             naverApiInfoApplicationService.addApiInfo(request, userPrincipal.getId())
             return ResponseEntity.status(HttpStatus.CREATED).build()
         } catch (e: Exception) {
-            // 로깅 추가
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                .body(mapOf("error" to "API 정보 추가 중 오류가 발생했습니다: ${e.message}"))
-        }
+catch (e: Exception) {
+    // 로깅 추가
+    logger.error("API 정보 추가 중 오류 발생", e)
+    return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+        .body(mapOf("error" to "API 정보 추가 중 오류가 발생했습니다: ${e.message}"))
+}
     }
 
     @PreAuthorize("isAuthenticated()")
