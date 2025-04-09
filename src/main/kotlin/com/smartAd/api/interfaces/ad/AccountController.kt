@@ -5,7 +5,6 @@ import com.smartAd.api.infrastructure.auth.security.CustomUserPrincipal
 import com.smartAd.api.interfaces.ad.dto.AddApiInfoRequest
 import io.github.oshai.kotlinlogging.KotlinLogging
 import jakarta.validation.Valid
-import lombok.extern.slf4j.Slf4j
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.security.access.prepost.PreAuthorize
@@ -16,7 +15,6 @@ private val logger = KotlinLogging.logger {}
 
 @RestController
 @RequestMapping("/api/account")
-@Slf4j
 class AccountController(
     private val naverApiInfoApplicationService: NaverApiInfoApplicationService
 ) {
@@ -41,7 +39,7 @@ class AccountController(
     fun findUserAccount(@AuthenticationPrincipal userPrincipal: CustomUserPrincipal): ResponseEntity<Any> {
         try {
             val apiInfoList = naverApiInfoApplicationService.findUserAccount(userPrincipal.getId())
-            return ResponseEntity.status(HttpStatus.OK).body(mapOf("apiInfoList" to apiInfoList))
+            return ResponseEntity.status(HttpStatus.OK).body(apiInfoList)
         } catch (e: Exception) {
             logger.error(e) { "API 정보 조회 중 오류 발생 ${e.message}" }
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
