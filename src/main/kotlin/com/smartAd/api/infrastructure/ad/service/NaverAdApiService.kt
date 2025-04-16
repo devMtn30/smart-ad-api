@@ -1,3 +1,4 @@
+package com.smartAd.api.infrastructure.ad.service
 
 import com.smartAd.api.domain.ad.model.Campaign
 import com.smartAd.api.domain.ad.model.NaverApiInfo
